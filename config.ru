@@ -10,5 +10,5 @@ use Rack::ReverseProxy do
     reverse_proxy_options force_ssl: true, replace_response_host: true
   end
   reverse_proxy(/^\/blog(\/.*)$/,
-              'http://blog.mihivai-blog.com$1'
+              'http://blog.mihivai-blog.com$1')
 end
