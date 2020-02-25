@@ -18,6 +18,7 @@ gem 'webpacker'
 
 gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
