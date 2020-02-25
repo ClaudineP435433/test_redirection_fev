@@ -16,6 +16,13 @@ module TestRedirectionFev
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    config.middleware.insert(0, Rack::ReverseProxy) do
+      reverse_proxy_options preserve_host: false
+      if Rails.env.production? or Rails.env.staging?
+        reverse_proxy_options force_ssl: true, replace_response_host: true
+      end
+      reverse_proxy /^\/blog(\/?.*)$/, 'http://redirection.mihivai-blog.com/'
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
