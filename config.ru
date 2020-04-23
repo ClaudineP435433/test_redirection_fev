@@ -12,11 +12,9 @@ use Rack::ReverseProxy do
   # reverse_proxy(/^\/blog(\/.*)$/,
   #             'http://blog.mihivai-blog.com$1')
 
-    # reverse_proxy(/^\/blog(\/.*)$/,
-    #           'http://blog.mihivai-blog.com$1',
-    #             opts = { force_ssl: true, preserve_host: true })
 
-    reverse_proxy(/^\/blog(\/.*)$/, 'http://blog.mihivai-blog.com$1', opts = { preserve_host: false })
+  reverse_proxy(/^\/blog(\/.*)$/, 'https://blog.mihivai-blog.com$1',
+      opts = { preserve_host: true })
 
 
 end
