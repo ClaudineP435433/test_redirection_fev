@@ -15,8 +15,8 @@ use Rack::ReverseProxy do
     # reverse_proxy(/^\/blog(\/.*)$/,
     #           'http://blog.mihivai-blog.com$1',
     #             opts = { force_ssl: true, preserve_host: true })
-    use Rack::ReverseProxy do
+
     reverse_proxy(/^\/blog(\/.*)$/, 'http://blog.mihivai-blog.com$1', opts = { preserve_host: true })
-    end
+
 
 end
